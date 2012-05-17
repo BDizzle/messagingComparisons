@@ -1,0 +1,47 @@
+package benchmarks;
+
+import "google/protobuf/csharp_options.proto";
+
+option (google.protobuf.csharp_file_options).namespace = "TRMS.MessagingComparisons.Protos";
+option (google.protobuf.csharp_file_options).umbrella_classname = "BenchmarkProtos";
+
+option optimize_for = SPEED;
+
+message Command {
+optional string commandName = 1;
+optional int32 region = 2;
+optional string videoFileName = 3;
+optional string audioFileName0 = 4;
+optional string audioFileName1 = 5;
+optional string audioFileName2 = 6;
+optional string audioFileName3 = 7;
+optional string vbiFileName = 8;
+optional bool useTDIR = 9;
+optional uint32 initialFrame = 10;
+optional double initialRate = 11;
+optional bool loop = 12;
+}
+
+message CommandResponse {
+optional int32 hr = 1;
+optional string description = 2;
+}
+
+message DataRequest {
+optional string command = 1;
+optional string videoFileName = 2;
+optional string resolution = 3;
+}
+
+message DataRequestResponse {
+optional string videoFileName = 1;
+optional uint32 audioSampleRate = 2;
+optional string videoCodec = 3;
+optional string resolution = 4;
+optional int32 bitrate = 5;
+optional double frameRate = 6;
+optional string decoder = 7;
+optional string audioCodec = 8;
+optional int32 audioBitsPerSample = 9;
+optional int32 audioTrackCount = 10;
+}
